@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+<div class="div-box">
+    {% for i in about %}
+
+
+    <div class="div-box delivering text-center" style="background-image:url({{i.banner.url}})">
+        <div class="container">
+            <div class="delivering-content">
+                <h2 class="mb-45 color-base">{{i.title}}</h2>
+                <p class="mb-45">{{i.title_second}}
+                </p>
+                <ul class="delivering-list text-left">
+                    <li> <i class="fa fa-check-circle-o"></i>{{i.title_check_1}} </li>
+                    <li> <i class="fa fa-check-circle-o"></i>{{i.title_check_2}} </li>
+                    <li> <i class="fa fa-check-circle-o"></i>{{i.title_check_3}} </li>
+                    <li> <i class="fa fa-check-circle-o"></i>{{i.title_check_4}} </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="div-box text-top mt">
+        <div class="container">
+            <div class="text-center mb-20">
+                <h2 class="title-style title-style-1 mb-20"><span class="title-left">Biziň </span><span
+                        class="title-right">Taryhymyz</span></h2>
+                <p><i>{{i.about}}</i></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="div-box who-we-are">
+        <div class="container">
+            <div class="row mt-20 mb-45">
+                <div class="col-md-6 col-sm-6">
+                    <div class="img-left"><img src="{{i.image.url}}" alt="about-us" /></div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="who-we-are-right">
+                        <h2 class="mt-20 mb-20">Biziň Maksadymyz</h2>
+                        <p class="mb-20">{{i.description}}</p>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="div-box">
+    <div class="slider-home slider-home-9">
+        <div data-number="1" data-margin="100" data-loop="yes" data-navcontrol="no" data-dots="yes"
+            class="begreen-owl-carousel">
+            {% for banners in banners %}
+            <div class="slider-1" style="background-image: url({{banners.image.url}});">                
+                <div class="slider-content slider-1-content">
+                    <h3>{{banners.title_one}}</h3>
+                    <div class="text">{{banners.title_second}}</div>
+                    <div class="desc">{{banners.description}}</div>
+                </div>
+                <div class="click-scroll-body">
+                    <div class="click-scroll-body-content">
+                        <div class="border-scroll"></div>
+                        <div class="light-animation"></div>
+                    </div>
+                </div>
+               
+            </div>
+            {% endfor %}            
+        </div>
+    </div>
+</div>
+<!-- end SLide -->
+
+
+<!-- hyzmatlar -->
+<div class="div-box">
+    <div class="home-6-icon-box mb mt">
+        <div class="container">
+            <div class="row mt mb-45">
+                <div class="col-md-3 col-sm-6">
+                    <div class="style_6 icon-box-shortcode-wrap">
+                        <div class="icon-box-container">
+                            <div class="icon-wrap">
+                            <div class="icon-main"><img src="{% static 'images/yunus/icon1.png' %}" alt="Garden care" /></div>
+                            </div>
+                            <div class="icon-content">
+                                <div class="icon-title"> 24/7 hyzmatda </div>
+                            </div>
+                            <p class="icon-description">Lorem ipsum dolor sit amet, id nunc suspendisse
+                                vitae reprehenderit ornare bibendum libero nulla facilipat.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="style_6 icon-box-shortcode-wrap">
+                        <div class="icon-box-container">
+                            <div class="icon-wrap">
+                            <div class="icon-main"><img src="{% static 'images/yunus/icon2.png' %}" alt="Garden care" /></div>
+                            </div>
+                            <div class="icon-content">
+                                <div class="icon-title">Eltip bermek </div>
+                            </div>
+                            <p class="icon-description">Lorem ipsum dolor sit amet, id nunc suspendisse
+                                vitae reprehenderit ornare bibendum libero nulla facilipat.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="style_6 icon-box-shortcode-wrap">
+                        <div class="icon-box-container">
+                            <div class="icon-wrap">
+                            <div class="icon-main"><img src="{% static 'images/yunus/icon3.png' %}" alt="Garden care" /></div>
+                            </div>
+                            <div class="icon-content">
+                                <div class="icon-title">Ynamly </div>
+                            </div>
+                            <p class="icon-description">Lorem ipsum dolor sit amet, id nunc suspendisse
+                                vitae reprehenderit ornare bibendum libero nulla facilipat.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="style_6 icon-box-shortcode-wrap">
+                        <div class="icon-box-container">
+                            <div class="icon-wrap">
+                            <div class="icon-main"><img src="{% static 'images/yunus/icon4.png' %}" alt="Garden care" /></div>
+                            </div>
+                            <div class="icon-content">
+                                <div class="icon-title">Ýokary hilli</div>
+                            </div>
+                            <p class="icon-description">Lorem ipsum dolor sit amet, id nunc suspendisse
+                                vitae reprehenderit ornare bibendum libero nulla facilipat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--end  hyzmatlar -->
+
+
+
+
+
+
+<div class="div-box">
+    <div class="home-7-latest-projects">
+        <div class="container">
+            <h2 class="title-style title-style-1 text-center mt"><span class="title-left">Taze
+                </span><span class="title-right">Harytlar</span></h2>
+            <div data-js-module="filtering-demo" class="big-demo go-wide hover-dir-style-2">
+                <div class="filter-button-group button-group js-radio-button-group container text-center has-border">
+                    <a href="">
+                        <button  class="button ">Ählisi</button>
+                    </a>
+                    
+                    {% for i in categories %}
+                    <a href=" {% url 'category' i.slug %}">
+                        <button type="submit" class="button">{{i.title}}</button>
+                    </a>
+                    {% endfor %}
+                    
+                <ul class="grid da-thumbs product-begreen columns-3">
+                    {% for product in products %}
+                    <li class="element-item product-item-wrap bedroom design work-space">
+                        <div class="hover-dir">
+                            <figure><img src="{{product.image_one.url}}" alt="" /></figure>
+                            <div>
+                                <div class="in-slider">
+                                    <div class="in-slider-content"><a href="{{product.image_one.url}}"><i
+                                                class="fa fa-expand"></i></a><a href="{% url 'single-product' product.slug product.id %}">
+                                            <div class="text">{{product.title}}</div>
+                                        </a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="div-box mb">
+    <div class="home-5-counter">
+        <div class="container">
+            <div class="row">
+                {% for e in stars %}
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="counter-wrap-style_1">
+                        <div class="gr-counter gr-animated style_1 go">
+                            <div class="content-inner">
+                                <div data-from="0" data-to="{{e.bill}}" class="content-number gr-number-counter">
+                                    {{e.bill}}</div>
+                                <div class="gr-text-defaul"> {{e.name}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                {% endfor %}              
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

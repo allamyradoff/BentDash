@@ -1,0 +1,52 @@
+{% load static %}
+  
+<div class="div-box">
+    <footer id="yolo-footer-wrapper">
+        <div class="yolo-footer-wrapper footer-6">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        {% for i  in contact %}
+                        <div class="col-md-6 col-sm-4">
+                            <div class="footer-col footer-2-col-1">
+                                <h3 class="mb-45">Habarlaşmak üçin maglymat</h3>
+                                <div class="icon-info">
+                                    <p><strong>Address</strong><br />{{i.address}}</p><i
+                                        class="fa fa-map-marker"></i>
+                                </div>
+                                <div class="icon-info">
+                                    <p><strong>Jaň ulgamlary</strong><br />{{i.mobile}}<br />{{i.phone}}
+                                    </p><i class="fa fa-phone"></i>
+                                </div>
+                                <div class="icon-info">
+                                    <p><strong>Email poçtamyz</strong><br />{{i.email}}</p><i
+                                        class="fa fa-envelope"></i>
+                                </div>
+                            </div>
+                        </div>                        
+                        <div class="col-md-6 col-sm-4">
+                            <div class="footer-col footer-1-col-1">
+                                <h2><a href="index.html" class="logo"><img src="{{i.image.url}}"
+                                            alt="logo1" width="84" height="63"
+                                            class="vc_single_image-img attachment-full" /></a></h2>
+                                <p>{{i.about_us}}</p>
+                                
+                            </div>
+                        </div>
+                        {% endfor %}                        
+                    </div>
+                    <div class="click-back-top-footer">
+                        {% comment %} <button type="button"
+                            class="sn-btn sn-btn-style-17 sn-back-to-top fixed-right-bottom"><i
+                                class="fa fa-angle-up"></i></button> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="copyright">BENTDAS © YOLO 2016 COPYRIGHT</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

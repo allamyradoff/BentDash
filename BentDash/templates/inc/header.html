@@ -1,0 +1,73 @@
+
+{% load static %}
+
+<header class="header yolo-header-style-6">
+    <div class="yolo-top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="top-sidebar top-bar-left col-md-4">
+                    <aside id="text-11" class="widget widget_text">
+                        <div class="textwidget">
+                            <div>Bentdaş</div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="top-sidebar top-bar-right col-md-8">
+                    <aside id="text-6" class="widget widget_text">
+                        {% for i  in contact %}
+                        <div class="textwidget"><i class="fa fa-home"></i> {{i.address}} <i
+                                style="margin-left: 15px" class="fa fa-phone"></i> {{i.mobile}}<i
+                                style="margin-left: 15px" class="fa fa-clock-o"></i> Dush - Anna: 9.00am -
+                            8.00pm
+                        </div>
+                        {% endfor %}
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-menu">
+        <div class="col-3 text-left"><a href="#primary-menu"> <img src="{% static 'images/yunus/hamburgerheader.jpg' %}" style="max-width:25%;" alt="logo" /></a></div>
+        <div class="col-3 text-center">
+            <div class="logo">
+                {% for e in contact %}
+                <h1><a href="/"><img src="{{e.image_top.url}}" alt="logo" /></a></h1>                  
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <div class="container">
+
+            <div class="main-nav-wrapper">
+                <div class="header-logo">
+                    {% for i in contact %}
+                    <h1><a href="/"><img src="{{i.image_top.url}}" alt="logo" /></a></h1>                      
+                    {% endfor %}
+                </div>
+                <div class="header-left">
+                    <nav id="primary-menu" class="main-nav">
+                        <ul class="nav">
+                            <li class=" menu-item menu-home"><a href="/">Baş Sahypa</a>
+                            </li>
+                            <li class="menu-item menu-blog"><a href="{% url 'product_all' %}">Önümler</a>
+                                <ul class="sub-menu">
+                                    {% for i in categories%}
+                                    <li><a href="{% url 'product' i.slug %}">{{i.title}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-shop"><a href="{% url 'about_us' %}">Biz barada</a>
+                            </li>
+                            <li class="menu-item menu-blog"><a href="{% url 'contact' %}">Habarlaşmak üçin</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- .header-main-nav-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</header>

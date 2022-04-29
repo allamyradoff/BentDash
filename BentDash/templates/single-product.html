@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="div-box mb mt">
+    <div class="container">
+        <div class="row">
+            {% for i in products %}
+            <div class="col-md-5">
+                <div class="single-product-slider">
+                    <div id="sync1" class="owl-carousel owl-template">
+                        <div class="item">
+                            <figure><img src="{{i.image_one.url}}" alt="slide" width="1080" height="768" /></figure>
+                        </div>
+                        <div class="item">
+                            <figure><img src="{{i.image_second.url}}" alt="slide" width="1080" height="768" /></figure>
+                        </div>
+                        <div class="item">
+                            <figure><img src="{{i.image_three.url}}" alt="slide" width="1080" height="768" /></figure>
+                        </div>
+
+                    </div>
+                    <div id="sync2" class="owl-carousel owl-template">
+                        <div class="item">
+                            <figure><img src="{{i.image_one.url}}" alt="slide" width="180" height="130" /></figure>
+                        </div>
+                        <div class="item">
+                            <figure><img src="{{i.image_second.url}}" alt="slide" width="180" height="130" /></figure>
+                        </div>
+                        <div class="item">
+                            <figure><img src="{{i.image_three.url}}" alt="slide" width="180" height="130" /></figure>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="single-product-content">
+                    <div class="summary-product entry-summary">
+                        <h2 class="product_title mb-45">{{i.title}}</h2>
+                        <hr>
+                        <div>
+                            <p class="price"><span class="product-begreen-price-amount amount"></p>
+                        </div>
+                        <div class="col-md-12 col-sm-9">
+                            <div class="desc-review-content tab-content clearfix">
+                                <div id="tab-description" class="tab-pane active">
+                                    <h2 class="mb-20">Harydyň opisanýasy</h2>
+                                    <p>{{i.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product_meta"><span class="product-stock-status-wrapper">
+                                <label style="color: #FDD418; margin-top: 25%; font-size: 20px;">Categories:</label><a
+                                     style="font-size: 20px; margin-left: 5%;">{{i.category}}</a></span><span
+                                class="tagged_as">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="div-box mb">
+        <div class="container">
+            <div class="title-style title-style-2 text-center mb-20">
+                <h2 style="margin-top:5%;">Başgada dürli harytlar </h2>
+            </div>
+            {% for e in last %}
+            <div data-number="4" data-margin="0" data-loop="no" data-navcontrol="yes"
+                class="shortcode-product-wrap product-begreen begreen-owl-carousel">
+                <div class="product-item-wrap product-style_1">
+                    <div class="product-item-inner">
+                        <div class="product-thumb">
+                            <div class="product-thumb-primary"><img src="{{e.image_second.url}}" alt="product1" width="375"
+                                    height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image" />
+                            </div>
+                            <a href="{% url 'single-product' e.slug e.category.id%}" class="product-link">
+                                <div class="product-hover-sign">
+                                    <hr />
+                                    <hr />
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{e.title}}
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
